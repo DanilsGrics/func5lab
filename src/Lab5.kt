@@ -9,8 +9,7 @@ class Lab5 {
                             .replace("-", "")
                             .replace(" ", "")
                             .toSet() //excludes duplicates
-                            .size
-                            .compareTo(suggestedString
+                            .size.compareTo(suggestedString
                                     .toLowerCase()
                                     .replace("-", "")
                                     .replace(" ", "")
@@ -30,8 +29,7 @@ class Lab5 {
                         .toLowerCase()
                         .replace("-", "")
                         .matches(Regex(pattern = "^\\d{9}[\\d|x]$"))
-                        .compareTo(true)
-                        .toString()
+                        .compareTo(true).toString()
                         .replace("0", suggestedISBN
                                 .toLowerCase()
                                 .replace("-", ""))
@@ -40,8 +38,7 @@ class Lab5 {
                                 .toLowerCase()
                                 .replace("-", "")
                                 .matches(Regex(pattern = "^\\d{10}$"))
-                                .compareTo(true)
-                                .toString()
+                                .compareTo(true).toString()
                                 .replace("0", (suggestedISBN
                                         .toLowerCase()
                                         .replace("-", "")
@@ -59,12 +56,10 @@ class Lab5 {
 
                     phraseToInspect
                             .toLowerCase()
-                            .replace("\n", " ")
-                            .replace(",", " ")
+                            .replace("\n", " ").replace(" '", " ")
+                            .replace("' ", " ").replace(",", " ")
                             .replace("  ", " ")
-                            .replace(" '", " ")
-                            .replace("' ", " ")
-                            .replace(Regex(pattern = "[^a-z0-9' ]"), "")
+                            .replace(Regex(pattern = "[^0-9a-z' ]"), "")
                             .split(" ")
                             .groupingBy { it }
                             .eachCount()
